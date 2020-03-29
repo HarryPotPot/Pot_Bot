@@ -13,5 +13,14 @@ class React(Cog_Extension):
         random_pic = random.choice(jdata['url_pic'])
         await ctx.send(random_pic)
 
+    @commands.command()
+    async def sayd(self, ctx, *, msg):
+        await ctx.message.delete()
+        await ctx.send(msg)
+
+    @commands.command()
+    async def clean(self, ctx, times:int):
+        await ctx.channel.purge(limit=times + 1)
+
 def setup(bot):
     bot.add_cog(React(bot))
